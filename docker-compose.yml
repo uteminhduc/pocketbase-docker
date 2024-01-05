@@ -15,6 +15,6 @@ services:
     env_file:
       - stack.env
     volumes:
-      - ${PATH}/pb_data:/pb/pb_data
-      - ${PATH}/pb_migrations:/pb/pb_migrations
-      - ${PATH}/pb_public:/pb/pb_public
+      - /home/docker/${PB_LOCATION}/pb_data:/pb/pb_data
+      - /home/docker/${PB_LOCATION}/pb_migrations:/pb/pb_migrations
+      - /home/docker/${PB_LOCATION}/pb_public:/pb/pb_public
