@@ -8,8 +8,6 @@ services:
         - PB_VERSION=${PB_VERSION}
     restart: unless-stopped
     pull_policy: build
-    command: sh -c "cd /pb &&
-                    ./pocketbase serve --http=0.0.0.0:8090 --encryptionEnv=${PB_ENCRYPTION_KEY} --origins=${ORIGINS}, --automigrate=${AUTOMIGRATION}"
     ports:
       - ${PB_PORT}:8090
     env_file:
@@ -18,3 +16,4 @@ services:
       - /home/docker/${PB_LOCATION}/pb_data:/pb/pb_data
       - /home/docker/${PB_LOCATION}/pb_migrations:/pb/pb_migrations
       - /home/docker/${PB_LOCATION}/pb_public:/pb/pb_public
+      - /home/docker/${PB_LOCATION}/pb_hooks:/pb/pb_hooks
